@@ -1,0 +1,17 @@
+.gradle
+build
+
+.settings
+.project
+
+app/.settings
+app/bin
+app/.classpath
+app/.factorypath
+app/.project
+
+visual/.settings
+visual/bin
+visual/.classpath
+visual/.factorypath
+visual/.project

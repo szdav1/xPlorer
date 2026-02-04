@@ -1,0 +1,77 @@
+package lib.theming;
+
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@AllArgsConstructor(access = AccessLevel.NONE)
+public final class ColorThemeBackup {
+	@Getter
+	private static final String backup = 
+		"""
+		{
+			"XButton": {
+				"background": {
+					"normal":  ["#FFF000"],
+					"hovered": ["#FFF000"],
+					"clicked": ["#FFF000"],
+					"direction": "left-right"
+				},
+				"foreground": {
+					"normal":  ["#000FFF"],
+					"hovered": ["#000FFF"],
+					"clicked": ["#000FFF"],
+					"direction": "right-left"
+				},
+				"border": {
+					"foreground": {
+						"normal":  ["#000FFF"],
+						"hovered": ["#000FFF"],
+						"clicked": ["#000FFF"],
+						"direction": "right-left"
+					},
+					"size": 5,
+					"radius": 10,
+					"scaling": "absolute"
+				},
+				"font": {
+					"normal": {
+						"family": "Comic Sans",
+						"ligature": "normal",
+						"size": 5,
+						"scaling": "relative"
+					},
+					"hovered": {
+						"family": "Comic Sans",
+						"ligature": "bold",
+						"size": 5,
+						"scaling": "absolute"
+					},
+					"clicked": {
+						"family": "Comic Sans",
+						"ligature": "italic",
+						"size": 5,
+						"scaling": "relative"
+					}
+				},
+				"icon": {
+					"normal": {
+						"src": "/icons/normal.png",
+						"size": [500, 500],
+						"scaling": "absolute"
+					},
+					"hovered": {
+						"src": "/icons/hovered.png",
+						"size": [200, 500],
+						"scaling": "absolute"
+					},
+					"clicked": {
+						"src": "/icons/clicked.png",
+						"size": [500, 300],
+						"scaling": "absolute"
+					}
+				}
+			}
+		}
+	""";
+}
