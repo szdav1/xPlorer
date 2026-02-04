@@ -9,7 +9,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
 import lib.theming.ColorThemeBackup;
-import lib.theming.selectors.Selector;
+import lib.theming.selector.Selector;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 

@@ -1,4 +1,4 @@
-package lib.theming.selectors;
+package lib.theming.selector;
 
 import lib.theming.declarations.BorderDeclaration;
 import lib.theming.declarations.FontDeclaration;
