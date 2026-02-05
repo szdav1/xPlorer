@@ -1,5 +1,7 @@
 package lib.theming.appearance.configs;
 
+import java.awt.Font;
+
 import lib.theming.appearance.consts.ScaleType;
 import lib.theming.declarations.FontDeclaration;
 import lib.theming.properties.FontProperty;
@@ -15,6 +17,13 @@ public final class FontConfiguration implements Configuration {
 		private int size;
 		private ScaleType scaling;
 
+		public FontData() {
+			this.family = Font.MONOSPACED;
+			this.ligature = "normal";
+			this.size = 2;
+			this.scaling = ScaleType.ABSOLUTE;
+		}
+
 		public FontData(final FontProperty property) {
 			this.family = property.getFamily();
 			this.ligature = property.getLigature();
@@ -26,6 +35,12 @@ public final class FontConfiguration implements Configuration {
 	private FontData normalConfig;
 	private FontData hoveredConfig;
 	private FontData clickedConfig;
+
+	public FontConfiguration() {
+		this.normalConfig = new FontData();
+		this.hoveredConfig = new FontData();
+		this.clickedConfig = new FontData();
+	}
 
 	public FontConfiguration(final FontDeclaration declaration) {
 		this.normalConfig = new FontData(declaration.getNormal());

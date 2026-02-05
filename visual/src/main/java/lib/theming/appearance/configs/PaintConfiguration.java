@@ -5,10 +5,8 @@ import java.awt.Color;
 import lib.theming.appearance.consts.PaintDirection;
 import lib.theming.declarations.PaintDeclaration;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 public abstract class PaintConfiguration implements Configuration {
 
 	@Data
@@ -56,6 +54,13 @@ public abstract class PaintConfiguration implements Configuration {
 	private PaintData hoveredConfig;
 	private PaintData clickedConfig;
 	private PaintDirection direction;
+
+	public PaintConfiguration() {
+		this.normalConfig = new PaintData(new String[] {"#000000"});
+		this.hoveredConfig = new PaintData(new String[] {"#000000"});
+		this.clickedConfig = new PaintData(new String[] {"#000000"});
+		this.direction = PaintDirection.LEFT_TO_RIGHT;
+	}
 
 	public PaintConfiguration(final PaintDeclaration declaration) {
 		this.normalConfig = new PaintData(declaration.getNormal());

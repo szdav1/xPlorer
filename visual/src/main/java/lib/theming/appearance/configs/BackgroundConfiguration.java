@@ -7,6 +7,10 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false)
 public final class BackgroundConfiguration extends PaintConfiguration {
+	public BackgroundConfiguration() {
+		super();
+	}
+
 	public BackgroundConfiguration(final PaintDeclaration declaration) {
 		super(declaration);
 	}
