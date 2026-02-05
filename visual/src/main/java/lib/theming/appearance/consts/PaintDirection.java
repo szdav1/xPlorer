@@ -1,0 +1,13 @@
+package lib.theming.appearance.consts;
+
+public enum PaintDirection {
+	LEFT_TO_RIGHT,
+	RIGHT_TO_LEFT,
+	TOP_TO_BOTTOM,
+	BOTTOM_TO_TOP,
+
+	DIAGONAL_TOP_TO_RIGHT,
+	DIAGONAL_TOP_TO_LEFT,
+	DIAGONAL_BOTTOM_TO_RIGHT,
+	DIAGONAL_BOTTOM_TO_LEFT
+}

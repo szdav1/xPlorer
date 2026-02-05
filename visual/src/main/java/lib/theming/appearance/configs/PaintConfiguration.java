@@ -1,0 +1,81 @@
+package lib.theming.appearance.configs;
+
+import java.awt.Color;
+
+import lib.theming.appearance.consts.PaintDirection;
+import lib.theming.declarations.PaintDeclaration;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+public abstract class PaintConfiguration implements Configuration {
+
+	@Data
+	public final static class PaintData {
+		private Color[] colors;
+		private float[] fractions;
+
+		public PaintData(final String[] colorStrs) {
+			this.colors = this.parseColors(colorStrs);
+			this.fractions = this.parseFractions(colorStrs);
+		}
+
+		private Color[] parseColors(final String[] colorStrs) {
+			if (colorStrs == null || colorStrs.length == 0)
+				return new Color[] {Color.black, Color.black};
+
+			else if (colorStrs.length == 1)
+				return new Color[] {Color.decode(colorStrs[0]), Color.decode(colorStrs[0])};
+
+			Color[] colors = new Color[colorStrs.length];
+
+			for (int i = 0; i < colorStrs.length; i++)
+				colors[i] = Color.decode(colorStrs[i]);
+
+			return colors;
+		}
+
+		private float[] parseFractions(final String[] colorStrs) {
+			if (colorStrs == null || colorStrs.length == 0 || colorStrs.length == 1)
+				return new float[] {0.0F, 1.0F};
+
+			float[] fractions = new float[colorStrs.length];
+			float step = 1.0F / fractions.length;
+
+			for (float i = 0.0F; i < 1.0F; i += step)
+				fractions[(int) Math.floor(i)] = i;
+
+			fractions[fractions.length - 1] = 1.0F;
+
+			return fractions;
+		}
+	}
+
+	private PaintData normalConfig;
+	private PaintData hoveredConfig;
+	private PaintData clickedConfig;
+	private PaintDirection direction;
+
+	public PaintConfiguration(final PaintDeclaration declaration) {
+		this.normalConfig = new PaintData(declaration.getNormal());
+		this.hoveredConfig = new PaintData(declaration.getHovered());
+		this.clickedConfig = new PaintData(declaration.getClicked());
+		this.direction = this.parseDirection(declaration.getDirection());
+	}
+
+	private PaintDirection parseDirection(final String direction) {
+		return switch (direction.toUpperCase()) {
+			case "RIGHT_TO_LEFT" -> PaintDirection.RIGHT_TO_LEFT;
+			case "TOP_TO_BOTTOM" -> PaintDirection.TOP_TO_BOTTOM;
+			case "BOTTOM_TO_TOP" -> PaintDirection.BOTTOM_TO_TOP;
+
+			case "DIAGONAL_TOP_TO_RIGHT" -> PaintDirection.DIAGONAL_TOP_TO_RIGHT;
+			case "DIAGONAL_TOP_TO_LEFT" -> PaintDirection.DIAGONAL_TOP_TO_LEFT;
+			case "DIAGONAL_BOTTOM_TO_RIGHT" -> PaintDirection.DIAGONAL_BOTTOM_TO_RIGHT;
+			case "DIAGONAL_BOTTOM_TO_LEFT" -> PaintDirection.DIAGONAL_BOTTOM_TO_LEFT;
+
+			default -> PaintDirection.LEFT_TO_RIGHT;
+		};
+	}
+}

@@ -1,9 +1,9 @@
 package com.xplorer;
 
-import lib.theming.parser.ColorThemeParser;
+import lib.theming.repository.ColorThemeRepository;
 
 public class App {
 	public static void main(String[] args) {
-		ColorThemeParser.parseJson(ResourceManager.load("TestTheme.json"));
+		ColorThemeRepository.loadFromResource("TestTheme.json");
 	}
 }
