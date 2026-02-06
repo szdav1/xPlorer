@@ -5,3 +5,4 @@ plugins {
 rootProject.name = 'xPlorer'
 include('app')
 include('visual')
+include('xswing')

@@ -1,7 +1,5 @@
 plugins {
     id 'java'
-    id 'application'
-    id("com.gradleup.shadow") version "9.3.1"
 }
 
 jar.enabled = true
@@ -16,8 +14,6 @@ dependencies {
 
     implementation libs.guava
     
-    implementation 'com.google.code.gson:gson:2.13.2'
-
     compileOnly("org.projectlombok:lombok:1.18.42")
     annotationProcessor("org.projectlombok:lombok:1.18.42")
     
@@ -25,17 +21,12 @@ dependencies {
     testAnnotationProcessor("org.projectlombok:lombok:1.18.42")
 
     implementation project(':visual')
-    implementation project(':xswing')
 }
 
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(21)
     }
-}
-
-application {
-    mainClass = 'com.xplorer.App'
 }
 
 tasks.named('test') {

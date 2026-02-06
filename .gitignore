@@ -15,3 +15,9 @@ visual/bin
 visual/.classpath
 visual/.factorypath
 visual/.project
+
+xswing/.settings
+xswing/bin
+xswing/.classpath
+xswing/.factorypath
+xswing/.project
