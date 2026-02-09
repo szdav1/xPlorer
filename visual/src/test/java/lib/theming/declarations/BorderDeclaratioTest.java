@@ -5,6 +5,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+// TODO: Make declaration tests one nested unit test like appearance test
+// for consistency and sake of logic
 class BorderDeclarationTest {
 	@ParameterizedTest
 	@ValueSource(ints = {10, 6, -8})

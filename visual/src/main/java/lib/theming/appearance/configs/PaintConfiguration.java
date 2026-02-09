@@ -4,14 +4,21 @@ import java.awt.Color;
 
 import lib.theming.appearance.consts.PaintDirection;
 import lib.theming.declarations.PaintDeclaration;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Setter;
 
 @Data
+@AllArgsConstructor
 public abstract class PaintConfiguration implements Configuration {
 
 	@Data
 	public final static class PaintData {
+		@Setter(AccessLevel.NONE)
 		private Color[] colors;
+
+		@Setter(AccessLevel.NONE)
 		private float[] fractions;
 
 		public PaintData(final String[] colorStrs) {
@@ -19,17 +26,26 @@ public abstract class PaintConfiguration implements Configuration {
 			this.fractions = this.parseFractions(colorStrs);
 		}
 
+		private Color advancedColorDecode(final String colorStr) {
+			try {
+				return Color.decode(colorStr);
+			}
+			catch (Exception exc) {
+				return Color.black;
+			}
+		}
+
 		private Color[] parseColors(final String[] colorStrs) {
 			if (colorStrs == null || colorStrs.length == 0)
 				return new Color[] {Color.black, Color.black};
 
 			else if (colorStrs.length == 1)
-				return new Color[] {Color.decode(colorStrs[0]), Color.decode(colorStrs[0])};
+				return new Color[] {this.advancedColorDecode(colorStrs[0]), this.advancedColorDecode(colorStrs[0])};
 
 			Color[] colors = new Color[colorStrs.length];
 
 			for (int i = 0; i < colorStrs.length; i++)
-				colors[i] = Color.decode(colorStrs[i]);
+				colors[i] = this.advancedColorDecode(colorStrs[i]);
 
 			return colors;
 		}
@@ -40,9 +56,12 @@ public abstract class PaintConfiguration implements Configuration {
 
 			float[] fractions = new float[colorStrs.length];
 			float step = 1.0F / fractions.length;
+			int iterator = 0;
 
-			for (float i = 0.0F; i < 1.0F; i += step)
-				fractions[(int) Math.floor(i)] = i;
+			for (float i = 0.0F; i < 1.0F; i += step) {
+				fractions[iterator] = i;
+				iterator++;
+			}
 
 			fractions[fractions.length - 1] = 1.0F;
 
