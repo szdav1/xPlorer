@@ -50,7 +50,7 @@ class SelectorTest {
 		@Test
 		@DisplayName("PaintDeclaration's direction should be left-to-right")
 		void paintDeclarationTestShouldHavePaintDirectionOfLeftToRight() {
-			Assertions.assertEquals("left-to-right", this.pd.getDirection());
+			Assertions.assertEquals("left_to_right", this.pd.getDirection());
 		}
 	}
 
@@ -80,7 +80,7 @@ class SelectorTest {
 		@Test
 		@DisplayName("BorderDeclaration foreground paint direction should be diagonal bottom to left")
 		void borderTestForegroundShouldHavePaintDirectionOfDiagonalBottomToLeft() {
-			Assertions.assertEquals("diagonal-bottom-to-left", this.fg.getDirection());
+			Assertions.assertEquals("diagonal_bottom_to_left", this.fg.getDirection());
 		}
 
 		@Test

@@ -6,15 +6,15 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum PaintDirection {
-	LEFT_TO_RIGHT("left-to-right"),
-	RIGHT_TO_LEFT("right-to-left"),
-	TOP_TO_BOTTOM("top-to-bottom"),
-	BOTTOM_TO_TOP("bottom-to-top"),
+	LEFT_TO_RIGHT("left_to_right"),
+	RIGHT_TO_LEFT("right_to_left"),
+	TOP_TO_BOTTOM("top_to_bottom"),
+	BOTTOM_TO_TOP("bottom_to_top"),
 
-	DIAGONAL_TOP_TO_RIGHT("diagonaltop-to-right"),
-	DIAGONAL_TOP_TO_LEFT("diagonal-top-to-left"),
-	DIAGONAL_BOTTOM_TO_RIGHT("diagonal-bottom-to-right"),
-	DIAGONAL_BOTTOM_TO_LEFT("diagonal-bottom-to-left");
+	DIAGONAL_TOP_TO_RIGHT("diagonal_top_to_right"),
+	DIAGONAL_TOP_TO_LEFT("diagonal_top_to_left"),
+	DIAGONAL_BOTTOM_TO_RIGHT("diagonal_bottom_to_right"),
+	DIAGONAL_BOTTOM_TO_LEFT("diagonal_bottom_to_left");
 
 	private final String value;
 }
