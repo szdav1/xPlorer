@@ -5,9 +5,10 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum ScaleType {
-	ABSOLUTE("absolute"),
-	RELATIVE("relative");
+public enum UIState {
+	NORMAL("normal"),
+	HOVERED("hovered"),
+	CLICKED("clicked");
 
 	private final String value;
 }

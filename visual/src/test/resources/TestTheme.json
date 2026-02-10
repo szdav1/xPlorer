@@ -1,23 +1,23 @@
 {
 	"XButton": {
 		"background": {
-			"normal":  ["#FFF000"],
-			"hovered": ["#FFF000"],
-			"clicked": ["#FFF000"],
-			"direction": "left-right"
+			"normal":  ["#FF0000"],
+			"hovered": ["#00FF00"],
+			"clicked": ["#0000FF"],
+			"direction": "left-to-right"
 		},
 		"foreground": {
 			"normal":  ["#000FFF"],
 			"hovered": ["#000FFF"],
 			"clicked": ["#000FFF"],
-			"direction": "right-left"
+			"direction": "diagonal-bottom-to-left"
 		},
 		"border": {
 			"foreground": {
-				"normal":  ["#000FFF"],
-				"hovered": ["#000FFF"],
-				"clicked": ["#000FFF"],
-				"direction": "right-left"
+				"normal":  ["#0000FF"],
+				"hovered": ["#00FF00"],
+				"clicked": ["#FF0000"],
+				"direction": "diagonal-bottom-to-left"
 			},
 			"size": 5,
 			"radius": 10,
@@ -39,7 +39,7 @@
 			"clicked": {
 				"family": "Comic Sans",
 				"ligature": "italic",
-				"size": 5,
+				"size": 15,
 				"scaling": "relative"
 			}
 		},
@@ -52,7 +52,7 @@
 			"hovered": {
 				"src": "/icons/hovered.png",
 				"size": [200, 500],
-				"scaling": "absolute"
+				"scaling": "relative"
 			},
 			"clicked": {
 				"src": "/icons/clicked.png",

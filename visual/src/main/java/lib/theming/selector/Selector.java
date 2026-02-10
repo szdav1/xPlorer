@@ -4,13 +4,15 @@ import lib.theming.declarations.BorderDeclaration;
 import lib.theming.declarations.FontDeclaration;
 import lib.theming.declarations.IconDeclaration;
 import lib.theming.declarations.PaintDeclaration;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
+@AllArgsConstructor
 public final class Selector {
-	private PaintDeclaration background;
-	private PaintDeclaration foreground;
-	private BorderDeclaration border;
-	private FontDeclaration font;
-	private IconDeclaration icon;
+	private final PaintDeclaration background;
+	private final PaintDeclaration foreground;
+	private final BorderDeclaration border;
+	private final FontDeclaration font;
+	private final IconDeclaration icon;
 }

@@ -9,7 +9,6 @@ import lombok.Data;
 
 @Data
 public final class FontConfiguration implements Configuration {
-
 	@Data
 	public final class FontData {
 		private String family;

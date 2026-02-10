@@ -15,20 +15,20 @@ public final class ColorThemeBackup {
 					"normal":  ["#FFF000"],
 					"hovered": ["#FFF000"],
 					"clicked": ["#FFF000"],
-					"direction": "left-right"
+					"direction": "left-to-right"
 				},
 				"foreground": {
 					"normal":  ["#000FFF"],
 					"hovered": ["#000FFF"],
 					"clicked": ["#000FFF"],
-					"direction": "right-left"
+					"direction": "right-to-left"
 				},
 				"border": {
 					"foreground": {
 						"normal":  ["#000FFF"],
 						"hovered": ["#000FFF"],
 						"clicked": ["#000FFF"],
-						"direction": "right-left"
+						"direction": "right-to-left"
 					},
 					"size": 5,
 					"radius": 10,

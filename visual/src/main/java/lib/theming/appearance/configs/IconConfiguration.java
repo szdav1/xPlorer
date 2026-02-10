@@ -7,7 +7,6 @@ import lombok.Data;
 
 @Data
 public final class IconConfiguration implements Configuration {
-
 	@Data
 	public final class IconData {
 		private String src;

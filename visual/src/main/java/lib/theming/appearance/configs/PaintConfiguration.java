@@ -12,7 +12,6 @@ import lombok.Setter;
 @Data
 @AllArgsConstructor
 public abstract class PaintConfiguration implements Configuration {
-
 	@Data
 	public final static class PaintData {
 		@Setter(AccessLevel.NONE)
@@ -75,9 +74,9 @@ public abstract class PaintConfiguration implements Configuration {
 	private PaintDirection direction;
 
 	public PaintConfiguration() {
-		this.normalConfig = new PaintData(new String[] {"#000000"});
-		this.hoveredConfig = new PaintData(new String[] {"#000000"});
-		this.clickedConfig = new PaintData(new String[] {"#000000"});
+		this.normalConfig = new PaintData(new String[] {"#000000", "#000000"});
+		this.hoveredConfig = new PaintData(new String[] {"#000000", "#000000"});
+		this.clickedConfig = new PaintData(new String[] {"#000000", "#000000"});
 		this.direction = PaintDirection.LEFT_TO_RIGHT;
 	}
 
@@ -86,20 +85,5 @@ public abstract class PaintConfiguration implements Configuration {
 		this.hoveredConfig = new PaintData(declaration.getHovered());
 		this.clickedConfig = new PaintData(declaration.getClicked());
 		this.direction = this.parseDirection(declaration.getDirection());
-	}
-
-	private PaintDirection parseDirection(final String direction) {
-		return switch (direction.toUpperCase()) {
-			case "RIGHT_TO_LEFT" -> PaintDirection.RIGHT_TO_LEFT;
-			case "TOP_TO_BOTTOM" -> PaintDirection.TOP_TO_BOTTOM;
-			case "BOTTOM_TO_TOP" -> PaintDirection.BOTTOM_TO_TOP;
-
-			case "DIAGONAL_TOP_TO_RIGHT" -> PaintDirection.DIAGONAL_TOP_TO_RIGHT;
-			case "DIAGONAL_TOP_TO_LEFT" -> PaintDirection.DIAGONAL_TOP_TO_LEFT;
-			case "DIAGONAL_BOTTOM_TO_RIGHT" -> PaintDirection.DIAGONAL_BOTTOM_TO_RIGHT;
-			case "DIAGONAL_BOTTOM_TO_LEFT" -> PaintDirection.DIAGONAL_BOTTOM_TO_LEFT;
-
-			default -> PaintDirection.LEFT_TO_RIGHT;
-		};
 	}
 }

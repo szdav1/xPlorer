@@ -6,7 +6,7 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor(access = AccessLevel.NONE)
-class ResourceManagerTestInstance {
+public class ResourceManagerTestInstance {
 	public static String load(final String path) {
 		URL pathURL = ResourceManagerTestInstance.class.getResource("/" + path);
 
