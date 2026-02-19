@@ -1,5 +1,7 @@
 package lib.theming.appearance;
 
+import java.awt.Color;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -10,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import lib.theming.ColorThemeRepositoryTestInstance;
 import lib.theming.ResourceManagerTestInstance;
 import lib.theming.appearance.configs.BackgroundConfiguration;
+import lib.theming.appearance.configs.ForegroundConfiguration;
 import lib.theming.appearance.configs.PaintConfiguration.PaintData;
 import lib.theming.appearance.consts.PaintDirection;
 
@@ -51,9 +54,43 @@ class AppearanceTest {
 		}
 
 		@Test
-		@DisplayName("test")
-		void test() {
-			// TODO: Write Appearance tests
+		@DisplayName("Background colors should match with the ones defined in the color theme")
+		void backgroundTestColorsShouldMatchWithTheOnesInTheColorTheme() {
+			Assertions.assertAll(() -> {
+				Assertions.assertEquals(Color.red, this.normal.getColors()[0]);
+				Assertions.assertEquals(Color.green, this.hovered.getColors()[0]);
+				Assertions.assertEquals(Color.blue, this.clicked.getColors()[0]);
+			});	
+		}
+	}
+
+	@Nested
+	@DisplayName("ForegroundConfiguration test")
+	class ForegroundConfigurationTest {
+		ForegroundConfiguration fc;
+		PaintData normal;
+		PaintData hovered;
+		PaintData clicked;
+
+		@BeforeEach
+		@DisplayName("Initializing foreground test")
+		void foregroundTestInit() {
+			this.fc = appearance.getForeground();
+			this.normal = this.fc.getNormalConfig();
+			this.hovered = this.fc.getHoveredConfig();
+			this.clicked = this.fc.getClickedConfig();
+		}
+
+		@Test
+		@DisplayName("Foreground colors should match with the ones defined in the color theme")
+		void foregroundTestColorsShouldMatchWithTheOnesInTheColorTheme() {
+			Color expected = Color.decode("#000FFF");
+			
+			Assertions.assertAll(() -> {
+				Assertions.assertEquals(expected, this.normal.getColors()[0]);
+				Assertions.assertArrayEquals(new Color[] {expected, Color.black}, this.hovered.getColors());
+				Assertions.assertEquals(expected, this.clicked.getColors()[0]);
+			});	
 		}
 	}
 }
