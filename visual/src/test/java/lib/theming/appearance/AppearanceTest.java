@@ -12,9 +12,13 @@ import org.junit.jupiter.api.Test;
 import lib.theming.ColorThemeRepositoryTestInstance;
 import lib.theming.ResourceManagerTestInstance;
 import lib.theming.appearance.configs.BackgroundConfiguration;
+import lib.theming.appearance.configs.BorderConfiguration;
+import lib.theming.appearance.configs.FontConfiguration;
+import lib.theming.appearance.configs.FontConfiguration.FontData;
 import lib.theming.appearance.configs.ForegroundConfiguration;
 import lib.theming.appearance.configs.PaintConfiguration.PaintData;
 import lib.theming.appearance.consts.PaintDirection;
+import lib.theming.appearance.consts.ScaleType;
 
 @DisplayName("Appearance test")
 class AppearanceTest {
@@ -91,6 +95,57 @@ class AppearanceTest {
 				Assertions.assertArrayEquals(new Color[] {expected, Color.black}, this.hovered.getColors());
 				Assertions.assertEquals(expected, this.clicked.getColors()[0]);
 			});	
+		}
+	}
+
+	@Nested
+	@DisplayName("BorderConfiguration test")
+	class BorderConfigurationTest {
+		BorderConfiguration bc;
+
+		@BeforeEach
+		@DisplayName("Initialiying border test")
+		void borderConfigTestInit() {
+			this.bc = appearance.getBorder();
+		}
+
+		@Test
+		@DisplayName("Border values should match with the ones defined in the color theme file")
+		void borderTestValuesShouldMatchWithTheOnesDefinedInTheColorThemeFile() {
+			Assertions.assertAll(() -> {
+				Assertions.assertEquals(5, this.bc.getSize());
+				Assertions.assertEquals(10, this.bc.getRadius());
+				Assertions.assertEquals(ScaleType.ABSOLUTE, this.bc.getScaling());
+			});
+		}
+	}
+
+	@Nested
+	@DisplayName("FontConfiguration test")
+	class FontConfigurationTest {
+		FontConfiguration fc;
+		FontData normal;
+		FontData hovered;
+		FontData clicked;
+
+		@BeforeEach
+		@DisplayName("Initialiying font test")
+		void fontConfigTestInit() {
+			this.fc = appearance.getFont();
+			this.normal = this.fc.getNormalConfig();
+			this.hovered = this.fc.getHoveredConfig();
+			this.clicked = this.fc.getClickedConfig();
+		}
+
+		@Test
+		@DisplayName("Font normal values should match with the ones in the color theme file")
+		void fontTestNormalValues() {
+			Assertions.assertAll(() -> {
+				Assertions.assertEquals("Comic Sans", this.normal.getFamily());
+				Assertions.assertEquals("normal", this.normal.getLigature());
+				Assertions.assertEquals(5, this.normal.getSize());
+				Assertions.assertEquals(ScaleType.RELATIVE, this.normal.getScaling());
+			});
 		}
 	}
 }
