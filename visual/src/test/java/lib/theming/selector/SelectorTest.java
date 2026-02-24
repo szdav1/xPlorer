@@ -163,30 +163,30 @@ class SelectorTest {
 		}
 
 		@Test
-		@DisplayName("IconDeclaration normal properties should be Comic Sans, normal, 5 and relative")
+		@DisplayName("IconDeclaration normal properties should be icons/normal.png, {500, 500} and absolute")
 		void iconTestNormalPropertiesShouldMatchWithTheOnesDefinedInTheTestTheme() {
 			Assertions.assertAll(() -> {
-				Assertions.assertEquals("/icons/normal.png", this.normal.getSrc());
+				Assertions.assertEquals("icons/normal.png", this.normal.getSrc());
 				Assertions.assertArrayEquals(new int[] {500, 500}, this.normal.getSize());
 				Assertions.assertEquals("absolute", this.normal.getScaling());
 			});
 		}
 
 		@Test
-		@DisplayName("IconDeclaration hovered properties should be Comic Sans, normal, 5 and absolute")
+		@DisplayName("IconDeclaration hovered properties should be icons/hovered.png, {200, 500}, relative")
 		void iconTestHoveredPropertiesShouldMatchWithTheOnesDefinedInTheTestTheme() {
 			Assertions.assertAll(() -> {
-				Assertions.assertEquals("/icons/hovered.png", this.hovered.getSrc());
+				Assertions.assertEquals("icons/hovered.png", this.hovered.getSrc());
 				Assertions.assertArrayEquals(new int[] {200, 500}, this.hovered.getSize());
 				Assertions.assertEquals("relative", this.hovered.getScaling());
 			});
 		}
 
 		@Test
-		@DisplayName("IconDeclaration clicked properties should be Comic Sans, italic, 15 and relative")
+		@DisplayName("IconDeclaration clicked properties should be icons/clicked.png, {500, 300}, absolute")
 		void iconTestClickedPropertiesShouldMatchWithTheOnesDefinedInTheTestTheme() {
 			Assertions.assertAll(() -> {
-				Assertions.assertEquals("/icons/clicked.png", this.clicked.getSrc());
+				Assertions.assertEquals("icons/clicked.png", this.clicked.getSrc());
 				Assertions.assertArrayEquals(new int[] {500, 300}, this.clicked.getSize());
 				Assertions.assertEquals("absolute", this.clicked.getScaling());
 			});

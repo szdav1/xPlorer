@@ -16,6 +16,8 @@ import lib.theming.appearance.configs.BorderConfiguration;
 import lib.theming.appearance.configs.FontConfiguration;
 import lib.theming.appearance.configs.FontConfiguration.FontData;
 import lib.theming.appearance.configs.ForegroundConfiguration;
+import lib.theming.appearance.configs.IconConfiguration;
+import lib.theming.appearance.configs.IconConfiguration.IconData;
 import lib.theming.appearance.configs.PaintConfiguration.PaintData;
 import lib.theming.appearance.consts.PaintDirection;
 import lib.theming.appearance.consts.ScaleType;
@@ -129,7 +131,7 @@ class AppearanceTest {
 		FontData clicked;
 
 		@BeforeEach
-		@DisplayName("Initialiying font test")
+		@DisplayName("Initializing font test")
 		void fontConfigTestInit() {
 			this.fc = appearance.getFont();
 			this.normal = this.fc.getNormalConfig();
@@ -145,6 +147,82 @@ class AppearanceTest {
 				Assertions.assertEquals("normal", this.normal.getLigature());
 				Assertions.assertEquals(5, this.normal.getSize());
 				Assertions.assertEquals(ScaleType.RELATIVE, this.normal.getScaling());
+			});
+		}
+
+		@Test
+		@DisplayName("Font hovered values should match with the ones in the color theme file")
+		void fontTestHoveredlValues() {
+			Assertions.assertAll(() -> {
+				Assertions.assertEquals("Comic Sans", this.hovered.getFamily());
+				Assertions.assertEquals("bold", this.hovered.getLigature());
+				Assertions.assertEquals(5, this.hovered.getSize());
+				Assertions.assertEquals(ScaleType.ABSOLUTE, this.hovered.getScaling());
+			});
+		}
+
+		@Test
+		@DisplayName("Font clicked values should match with the ones in the color theme file")
+		void fontTestClickedlValues() {
+			Assertions.assertAll(() -> {
+				Assertions.assertEquals("Comic Sans", this.clicked.getFamily());
+				Assertions.assertEquals("italic", this.clicked.getLigature());
+				Assertions.assertEquals(15, this.clicked.getSize());
+				Assertions.assertEquals(ScaleType.RELATIVE, this.clicked.getScaling());
+			});
+		}
+	}
+
+	@Nested
+	@DisplayName("IconConfiguration test")
+	class IconConfigurationTest {
+		IconConfiguration ic;
+		IconData normal;
+		IconData hovered;
+		IconData clicked;
+
+		@BeforeEach
+		@DisplayName("Initializing icon test")
+		void iconConfigTestInit() {
+			this.ic = appearance.getIcon();
+			this.normal = this.ic.getNormalConfig();
+			this.hovered = this.ic.getHoveredConfig();
+			this.clicked = this.ic.getClickedConfig();
+		}
+
+		@Test
+		@DisplayName("Icon normal values should match with the ones in the color theme file")
+		void iconTestNormalValues() {
+			int[] expected = new int[] {500, 500};
+
+			Assertions.assertAll(() -> {
+				Assertions.assertEquals("icons/normal.png", this.normal.getSrc());
+				Assertions.assertArrayEquals(expected, this.normal.getSize());
+				Assertions.assertEquals(ScaleType.ABSOLUTE, this.normal.getScaling());
+			});
+		}
+
+		@Test
+		@DisplayName("Icon hovered values should match with the ones in the color theme file")
+		void iconTestHoveredlValues() {
+			int[] expected = new int[] {200, 500};
+
+			Assertions.assertAll(() -> {
+				Assertions.assertEquals("icons/hovered.png", this.hovered.getSrc());
+				Assertions.assertArrayEquals(expected, this.hovered.getSize());
+				Assertions.assertEquals(ScaleType.RELATIVE, this.hovered.getScaling());
+			});
+		}
+
+		@Test
+		@DisplayName("Icon clicked values should match with the ones in the color theme file")
+		void iconTestClickedlValues() {
+			int[] expected = new int[] {500, 300};
+
+			Assertions.assertAll(() -> {
+				Assertions.assertEquals("icons/clicked.png", this.clicked.getSrc());
+				Assertions.assertArrayEquals(expected, this.clicked.getSize());
+				Assertions.assertEquals(ScaleType.ABSOLUTE, this.clicked.getScaling());
 			});
 		}
 	}
