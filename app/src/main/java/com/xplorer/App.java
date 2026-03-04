@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 
 import theming.appearance.Appearance;
 import theming.repository.ColorThemeRepository;
+import xwt.components.xlabel.XLabel;
 import xwt.components.xpanel.XPanel;
 
 public class App {
@@ -21,11 +22,16 @@ public class App {
 
 	public static void main(String[] args) {
 		ColorThemeRepository.loadFromResource(ResourceManager.load("ColorTheme.json"));
+		ResourceManager.createExactPaths(ColorThemeRepository.getAppearances());
 		Appearance a = ColorThemeRepository.get("XButton");
-		TestFrame tf = new TestFrame();
-		XPanel panel = new XPanel(new Dimension(500, 300), a);
 
-		tf.add(panel);
+		System.out.println(a.getIcon().getNormalConfig().getSrc());
+
+		TestFrame tf = new TestFrame();
+		// XPanel panel = new XPanel(new Dimension(500, 300), a);
+		XLabel label = new XLabel(new Dimension(500, 500), "Hello!", a);
+
+		tf.add(label);
 		tf.setVisible(true);
 	}
 }

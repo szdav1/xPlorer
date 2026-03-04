@@ -45,17 +45,17 @@
 		},
 		"icon": {
 			"normal": {
-				"src": "/icons/normal.png",
-				"size": [500, 500],
-				"scaling": "absolute"
+				"src": "icons/normal.png",
+				"size": [50, 50],
+				"scaling": "relative"
 			},
 			"hovered": {
-				"src": "/icons/hovered.png",
+				"src": "icons/hovered.png",
 				"size": [200, 500],
 				"scaling": "absolute"
 			},
 			"clicked": {
-				"src": "/icons/clicked.png",
+				"src": "icons/clicked.png",
 				"size": [500, 300],
 				"scaling": "absolute"
 			}

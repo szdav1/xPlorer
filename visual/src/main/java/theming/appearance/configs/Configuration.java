@@ -1,5 +1,6 @@
 package theming.appearance.configs;
 
+import theming.appearance.consts.FontLigature;
 import theming.appearance.consts.PaintDirection;
 import theming.appearance.consts.ScaleType;
 
@@ -19,6 +20,15 @@ public interface Configuration {
 		}
 		catch (Exception exc) {
 			return PaintDirection.LEFT_TO_RIGHT;
+		}
+	}
+
+	default FontLigature parseLigature(final String ligature) {
+		try {
+			return FontLigature.valueOf(ligature.toUpperCase());
+		}
+		catch (Exception exc) {
+			return FontLigature.NORMAL;
 		}
 	}
 }

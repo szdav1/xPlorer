@@ -37,4 +37,17 @@ public final class Appearance {
 		this.icon = new IconConfiguration(selector.getIcon());
 		this.state = UIState.NORMAL;
 	}
+
+	private void initFont(final int reference) {
+		this.font.initFonts(reference);
+	}
+
+	private void initIcon(final int wReference, final int hReference) {
+		this.icon.initIcons(wReference, hReference);
+	}
+
+	public void init(final int proportion, final int wReference, final int hReference) {
+		this.initFont(proportion);
+		this.initIcon(wReference, hReference);
+	}
 }

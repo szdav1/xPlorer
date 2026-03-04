@@ -13,6 +13,7 @@ import lombok.AllArgsConstructor;
 import theming.appearance.Appearance;
 import xwt.components.XComponent;
 
+// TODO: Write icon, font, text and border painting
 @AllArgsConstructor(access = AccessLevel.NONE)
 public final class G2DPainter {
 	private static <TComponent extends JComponent & XComponent> LinearGradientPaint determineBackgroundPaint(final TComponent tcomponent, final Appearance appearance, final Rectangle clipBounds) {
