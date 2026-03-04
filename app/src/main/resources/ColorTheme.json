@@ -1,10 +1,10 @@
 {
 	"XButton": {
 		"background": {
-			"normal":  ["#FFF000"],
-			"hovered": ["#FFF000"],
-			"clicked": ["#FFF000"],
-			"direction": "left-to-right"
+			"normal":  ["#FF0000", "#00FF00", "#0000FF"],
+			"hovered": ["#00FF00"],
+			"clicked": ["#0000FF"],
+			"direction": "right_to_left"
 		},
 		"foreground": {
 			"normal":  ["#000FFF"],
@@ -20,8 +20,8 @@
 				"direction": "right-to-left"
 			},
 			"size": 5,
-			"radius": 10,
-			"scaling": "absolute"
+			"radius": 50,
+			"scaling": "relative"
 		},
 		"font": {
 			"normal": {
